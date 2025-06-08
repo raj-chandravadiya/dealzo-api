@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
-import { LookupsDefineModel, LookupsModelStatic } from '../models/lookups';
 import { LookupDetailsDefineModel, LookupDetailsModelStatic } from '../models/lookup-details';
+import { LookupsDefineModel, LookupsModelStatic } from '../models/lookups';
 import { sequelize } from './config';
 
 export interface DbContext {
