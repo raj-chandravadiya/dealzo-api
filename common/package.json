@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "format": "biome format --write",
+    "lint": "biome check ./src",
+    "build": "npm run format && npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
