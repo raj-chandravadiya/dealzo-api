@@ -13,5 +13,8 @@
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.15.29",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "sequelize": "^6.37.7"
   }
 }
