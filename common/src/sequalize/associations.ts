@@ -21,3 +21,13 @@ LookupDetailsDefineModel.hasMany(UserDefineModel, {
 UserDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'user_account_type_id_fkey'
 });
+
+// Each LookUpDetails has many Users.
+LookupDetailsDefineModel.hasMany(UserDefineModel, {
+  foreignKey: 'user_user_status_id_fkey'
+});
+
+// Each User belongs to a LookupDetails.
+UserDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'user_user_status_id_fkey'
+});
