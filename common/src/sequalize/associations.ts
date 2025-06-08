@@ -1,3 +1,4 @@
+import { AdminDefineModel } from './models/admin';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { UserDefineModel } from './models/user';
@@ -30,4 +31,24 @@ LookupDetailsDefineModel.hasMany(UserDefineModel, {
 // Each User belongs to a LookupDetails.
 UserDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'user_user_status_id_fkey'
+});
+
+// Each Admin belongs to a User.
+AdminDefineModel.belongsTo(UserDefineModel, {
+  foreignKey: 'admin_user_id_fkey'
+});
+
+// Each User has many Admin.
+UserDefineModel.hasMany(AdminDefineModel, {
+  foreignKey: 'admin_user_id_fkey'
+});
+
+// Each Admin belongs to a LookupDetails.
+AdminDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'admin_user_status_id_fkey'
+});
+
+// Each LookupDetails has many Admin.
+LookupDetailsDefineModel.hasMany(AdminDefineModel, {
+  foreignKey: 'admin_user_status_id_fkey'
 });

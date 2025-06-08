@@ -16,3 +16,8 @@ export {
   UserUpdateModel,
   UserModel
 } from './src/sequalize/models/user';
+export {
+  AdminCreateModel,
+  AdminUpdateModel,
+  AdminModel
+} from './src/sequalize/models/admin';
