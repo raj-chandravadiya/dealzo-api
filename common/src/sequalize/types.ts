@@ -1,3 +1,3 @@
 export type DatabasePrimaryKey = {
-    id: number;
+  id: number;
 };
