@@ -1,6 +1,7 @@
 import { AdminDefineModel } from './models/admin';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
+import { SellerDefineModel } from './models/seller';
 import { UserDefineModel } from './models/user';
 
 // Each LookupDetail belongs to a Lookup.
@@ -48,7 +49,37 @@ AdminDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'admin_user_status_id_fkey'
 });
 
-// Each LookupDetails has many Admin.
+// Each Admin belongs to a LookupDetails.
 LookupDetailsDefineModel.hasMany(AdminDefineModel, {
   foreignKey: 'admin_user_status_id_fkey'
+});
+
+// Each Seller belongs to User
+SellerDefineModel.belongsTo(UserDefineModel, {
+  foreignKey: 'seller_user_id_fkey'
+});
+
+// Each User has many seller
+UserDefineModel.hasMany(SellerDefineModel, {
+  foreignKey: 'seller_user_id_fkey'
+});
+
+// Each seller belongs to a LookupDetails.
+SellerDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'seller_user_status_id_fkey'
+});
+
+// Each User has many seller.
+LookupDetailsDefineModel.hasMany(SellerDefineModel, {
+  foreignKey: 'seller_user_status_id_fkey'
+});
+
+// Each Seller belongs to User
+SellerDefineModel.belongsTo(UserDefineModel, {
+  foreignKey: 'seller_verified_by_fkey'
+});
+
+// Each User has many seller
+UserDefineModel.hasMany(SellerDefineModel, {
+  foreignKey: 'seller_verified_by_fkey'
 });
