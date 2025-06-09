@@ -2,6 +2,7 @@ import { AdminDefineModel } from './models/admin';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { SellerDefineModel } from './models/seller';
+import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { UserDefineModel } from './models/user';
 
 // Each LookupDetail belongs to a Lookup.
@@ -82,4 +83,24 @@ SellerDefineModel.belongsTo(UserDefineModel, {
 // Each User has many seller
 UserDefineModel.hasMany(SellerDefineModel, {
   foreignKey: 'seller_verified_by_fkey'
+});
+
+// each seller-addresses belongs to LookupDetails
+SellerAddressesDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'seller_addresses_address_type_id_fkey'
+});
+
+// each lookupdetails has many seller-addresses
+LookupDetailsDefineModel.hasMany(SellerAddressesDefineModel, {
+  foreignKey: 'seller_addresses_address_type_id_fkey'
+});
+
+// each seller-addresses belongs to seller
+SellerAddressesDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'seller_addresses_seller_id_fkey'
+});
+
+// each seller has many seller-addresses
+SellerDefineModel.hasMany(SellerAddressesDefineModel, {
+  foreignKey: 'seller_addresses_seller_id_fkey'
 });

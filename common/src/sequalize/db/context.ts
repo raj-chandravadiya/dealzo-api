@@ -7,6 +7,8 @@ import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
 import { SellerDefineModel } from '../models/seller';
 import type { SellerModelStatic } from '../models/seller';
+import type { SellerAddressesModelStatic } from '../models/seller-addresses';
+import { SellerAddressesDefineModel } from '../models/seller-addresses';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
 import { sequelize } from './config';
@@ -18,6 +20,7 @@ export interface DbContext {
   user: UserModelStatic;
   admin: AdminModelStatic;
   seller: SellerModelStatic;
+  sellerAddresses: SellerAddressesModelStatic;
 }
 
 export const db: DbContext = {
@@ -26,5 +29,6 @@ export const db: DbContext = {
   lookupDetails: LookupDetailsDefineModel,
   user: UserDefineModel,
   admin: AdminDefineModel,
-  seller: SellerDefineModel
+  seller: SellerDefineModel,
+  sellerAddresses: SellerAddressesDefineModel
 };
