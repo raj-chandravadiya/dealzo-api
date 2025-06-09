@@ -1,8 +1,12 @@
-import { Sequelize } from 'sequelize';
-import { AdminDefineModel, AdminModelStatic } from '../models/admin';
-import { LookupDetailsDefineModel, LookupDetailsModelStatic } from '../models/lookup-details';
-import { LookupsDefineModel, LookupsModelStatic } from '../models/lookups';
-import { UserDefineModel, UserModelStatic } from '../models/user';
+import type { Sequelize } from 'sequelize';
+import { AdminDefineModel } from '../models/admin';
+import type { AdminModelStatic } from '../models/admin';
+import { LookupDetailsDefineModel } from '../models/lookup-details';
+import type { LookupDetailsModelStatic } from '../models/lookup-details';
+import { LookupsDefineModel } from '../models/lookups';
+import type { LookupsModelStatic } from '../models/lookups';
+import { UserDefineModel } from '../models/user';
+import type { UserModelStatic } from '../models/user';
 import { sequelize } from './config';
 
 export interface DbContext {

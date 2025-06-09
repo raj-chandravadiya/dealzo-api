@@ -1,7 +1,7 @@
 import type { BuildOptions, Model, ModelAttributes } from 'sequelize';
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/config';
-import { DatabasePrimaryKey } from '../types';
+import type { DatabasePrimaryKey } from '../types';
 
 export type UserCreateModel = {
   email: string;

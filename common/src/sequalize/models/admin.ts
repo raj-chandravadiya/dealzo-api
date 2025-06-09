@@ -1,9 +1,9 @@
 import type { BuildOptions, Model, ModelAttributes } from 'sequelize';
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/config';
-import { DatabasePrimaryKey } from '../types';
-import { LookupsModel } from './lookups';
-import { UserModel } from './user';
+import type { DatabasePrimaryKey } from '../types';
+import type { LookupsModel } from './lookups';
+import type { UserModel } from './user';
 
 export type AdminCreateModel = {
   user_id: number;
