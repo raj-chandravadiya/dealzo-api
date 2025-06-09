@@ -2,7 +2,7 @@ import type { BuildOptions, Model, ModelAttributes } from 'sequelize';
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../db/config';
 import type { DatabasePrimaryKey } from '../types';
-import type { LookupsModel } from './lookups';
+import type { LookupDetailsModel } from './lookup-details';
 import type { UserModel } from './user';
 
 export type AdminCreateModel = {
@@ -18,7 +18,7 @@ export type AdminCreateModel = {
 };
 
 export type AdminAssociationModel = {
-  lookups: LookupsModel;
+  lookup_details: LookupDetailsModel;
   user: UserModel;
 };
 
