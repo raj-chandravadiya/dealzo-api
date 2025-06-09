@@ -1,4 +1,3 @@
-import { UserCreateModel, UserUpdateModel, UserModel } from './src/sequalize/models/user';
 export { db, DbContext } from './src/sequalize/db/context';
 export { sequelize } from './src/sequalize/db/config';
 export {
