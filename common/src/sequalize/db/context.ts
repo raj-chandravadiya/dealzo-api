@@ -9,6 +9,8 @@ import { SellerDefineModel } from '../models/seller';
 import type { SellerModelStatic } from '../models/seller';
 import type { SellerAddressesModelStatic } from '../models/seller-addresses';
 import { SellerAddressesDefineModel } from '../models/seller-addresses';
+import type { SellerDocumentModelStatic } from '../models/seller-document';
+import { SellerDocumentDefineModel } from '../models/seller-document';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
 import { sequelize } from './config';
@@ -21,6 +23,7 @@ export interface DbContext {
   admin: AdminModelStatic;
   seller: SellerModelStatic;
   sellerAddresses: SellerAddressesModelStatic;
+  sellerDocument: SellerDocumentModelStatic;
 }
 
 export const db: DbContext = {
@@ -30,5 +33,6 @@ export const db: DbContext = {
   user: UserDefineModel,
   admin: AdminDefineModel,
   seller: SellerDefineModel,
-  sellerAddresses: SellerAddressesDefineModel
+  sellerAddresses: SellerAddressesDefineModel,
+  sellerDocument: SellerDocumentDefineModel
 };

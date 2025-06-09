@@ -3,6 +3,7 @@ import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
+import { SellerDocumentDefineModel } from './models/seller-document';
 import { UserDefineModel } from './models/user';
 
 // Each LookupDetail belongs to a Lookup.
@@ -103,4 +104,34 @@ SellerAddressesDefineModel.belongsTo(SellerDefineModel, {
 // each seller has many seller-addresses
 SellerDefineModel.hasMany(SellerAddressesDefineModel, {
   foreignKey: 'seller_addresses_seller_id_fkey'
+});
+
+// each seller-documents belongs to lookupdetails
+SellerDocumentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'seller_document_document_status_id_fkey'
+});
+
+// each lookupdetails has many seller-documents
+LookupDetailsDefineModel.hasMany(SellerDocumentDefineModel, {
+  foreignKey: 'seller_document_document_status_id_fkey'
+});
+
+// each seller-documents belongs to lookupdetails
+SellerDocumentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'seller_document_document_type_id_fkey'
+});
+
+// each lookupdetails has many seller-documents
+LookupDetailsDefineModel.hasMany(SellerDocumentDefineModel, {
+  foreignKey: 'seller_document_document_type_id_fkey'
+});
+
+// each seller-documents belongs to seller
+SellerDocumentDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'seller_document_seller_id_fkey'
+});
+
+// each seller has many seller-documents
+SellerDefineModel.hasMany(SellerDocumentDefineModel, {
+  foreignKey: 'seller_document_seller_id_fkey'
 });
