@@ -1,4 +1,5 @@
 import { AdminDefineModel } from './models/admin';
+import { BuyerDefineModel } from './models/buyer';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { SellerDefineModel } from './models/seller';
@@ -135,3 +136,23 @@ SellerDocumentDefineModel.belongsTo(SellerDefineModel, {
 SellerDefineModel.hasMany(SellerDocumentDefineModel, {
   foreignKey: 'seller_document_seller_id_fkey'
 });
+
+// each buyer belong to user
+BuyerDefineModel.belongsTo(UserDefineModel, {
+  foreignKey: 'buyer_user_id_fkey'
+})
+
+// each user has many buyer
+UserDefineModel.hasMany(BuyerDefineModel, {
+  foreignKey: 'buyer_user_id_fkey'
+})
+
+// each buyer belong to lookdetails
+BuyerDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'buyer_user_status_id_fkey'
+})
+
+// each lookdetails has many buyer
+LookupDetailsDefineModel.hasMany(BuyerDefineModel, {
+  foreignKey: 'buyer_user_status_id_fkey'
+})
