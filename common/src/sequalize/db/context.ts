@@ -5,6 +5,7 @@ import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
+import type { ProductModelStatic } from '../models/product';
 import { SellerDefineModel } from '../models/seller';
 import type { SellerModelStatic } from '../models/seller';
 import type { SellerAddressesModelStatic } from '../models/seller-addresses';
@@ -13,6 +14,7 @@ import type { SellerDocumentModelStatic } from '../models/seller-document';
 import { SellerDocumentDefineModel } from '../models/seller-document';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
+import { ProductDefineModel } from './../models/product';
 import { sequelize } from './config';
 
 export interface DbContext {
@@ -24,6 +26,7 @@ export interface DbContext {
   seller: SellerModelStatic;
   sellerAddresses: SellerAddressesModelStatic;
   sellerDocument: SellerDocumentModelStatic;
+  Product: ProductModelStatic;
 }
 
 export const db: DbContext = {
@@ -34,5 +37,6 @@ export const db: DbContext = {
   admin: AdminDefineModel,
   seller: SellerDefineModel,
   sellerAddresses: SellerAddressesDefineModel,
-  sellerDocument: SellerDocumentDefineModel
+  sellerDocument: SellerDocumentDefineModel,
+  Product: ProductDefineModel
 };

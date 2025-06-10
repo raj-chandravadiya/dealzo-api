@@ -1,6 +1,7 @@
 import { AdminDefineModel } from './models/admin';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
+import { ProductDefineModel } from './models/product';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { SellerDocumentDefineModel } from './models/seller-document';
@@ -134,4 +135,24 @@ SellerDocumentDefineModel.belongsTo(SellerDefineModel, {
 // each seller has many seller-documents
 SellerDefineModel.hasMany(SellerDocumentDefineModel, {
   foreignKey: 'seller_document_seller_id_fkey'
+});
+
+// each product belongs to a seller
+ProductDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'products_seller_id_fkey'
+});
+
+// each seller has many products
+SellerDefineModel.hasMany(ProductDefineModel, {
+  foreignKey: 'products_seller_id_fkey'
+});
+
+// each product belongs to a category
+ProductDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'products_category_id_fkey'
+});
+
+// each category has many products
+LookupDetailsDefineModel.hasMany(ProductDefineModel, {
+  foreignKey: 'products_category_id_fkey'
 });
