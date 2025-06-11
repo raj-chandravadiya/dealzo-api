@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductDescriptionDefineModel } from './models/product-description';
 import { ProductImageDefineModel } from './models/product-images';
 import { ProductManufacturingDetailsDefineModel } from './models/product-manufacturing-details';
 import { ProductQuestionDefineModel } from './models/product-question';
@@ -336,4 +337,14 @@ ProductImageDefineModel.belongsTo(ProductVarientDefineModel, {
 // product_variant has many product_images
 ProductVarientDefineModel.hasMany(ProductImageDefineModel, {
   foreignKey: 'product_varient_id'
+});
+
+// product_descriptions belongs to product
+ProductDescriptionDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_descriptions
+ProductDefineModel.hasMany(ProductDescriptionDefineModel, {
+  foreignKey: 'product_id'
 });

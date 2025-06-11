@@ -96,3 +96,9 @@ export {
   ProductImageUpdateModel,
   ProductImageModel
 } from './src/sequalize/models/product-images';
+
+export {
+  ProductDescriptionCreateModel,
+  ProductDescriptionUpdateModel,
+  ProductDescriptionModel
+} from './src/sequalize/models/product-description';
