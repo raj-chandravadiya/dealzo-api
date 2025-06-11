@@ -10,6 +10,8 @@ import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductQuestionModelStatic } from '../models/product-question';
+import { ProductQuestionDefineModel } from '../models/product-question';
 import type { ProductReviewModelStatic } from '../models/product-review';
 import { ProductReviewDefineModel } from '../models/product-review';
 import type { ProductReviewImagesModelStatic } from '../models/product-review-images';
@@ -48,6 +50,7 @@ export interface DbContext {
   productSize: ProductSizeModelStatic;
   productReview: ProductReviewModelStatic;
   productReviewImages: ProductReviewImagesModelStatic;
+  productQuestion: ProductQuestionModelStatic;
 }
 
 export const db: DbContext = {
@@ -66,5 +69,6 @@ export const db: DbContext = {
   productVarient: ProductVarientDefineModel,
   productSize: ProductSizeDefineModel,
   productReview: ProductReviewDefineModel,
-  productReviewImages: ProductReviewImagesDefineModel
+  productReviewImages: ProductReviewImagesDefineModel,
+  productQuestion: ProductQuestionDefineModel
 };

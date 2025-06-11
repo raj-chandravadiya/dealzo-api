@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductQuestionDefineModel } from './models/product-question';
 import { ProductReviewDefineModel } from './models/product-review';
 import { ProductReviewImagesDefineModel } from './models/product-review-images';
 import { ProductSizeDefineModel } from './models/product-size';
@@ -298,4 +299,19 @@ ProductReviewImagesDefineModel.belongsTo(ProductReviewDefineModel, {
 // Each product_review has many product_review_images
 ProductReviewDefineModel.hasMany(ProductReviewImagesDefineModel, {
   foreignKey: 'product_review_id'
+});
+
+// product_question belongs to product
+ProductQuestionDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_question belongs to buyer
+ProductQuestionDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// product_question answered_by_id belongs to seller
+ProductQuestionDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'answered_by_id'
 });

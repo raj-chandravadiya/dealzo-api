@@ -78,3 +78,9 @@ export {
   ProductReviewImagesUpdateModel,
   ProductReviewImagesModel
 } from './src/sequalize/models/product-review-images';
+
+export {
+  ProductQuestionCreateModel,
+  ProductQuestionUpdateModel,
+  ProductQuestionModel
+} from './src/sequalize/models/product-question';
