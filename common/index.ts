@@ -20,3 +20,13 @@ export {
   AdminUpdateModel,
   AdminModel
 } from './src/sequalize/models/admin';
+export {
+  ProductCreateModel,
+  ProductUpdateModel,
+  ProductModel
+} from './src/sequalize/models/product';
+export {
+  ProductVarientCreateModel,
+  ProductVarientUpdateModel,
+  ProductVarientModel
+} from './src/sequalize/models/product-varient';
