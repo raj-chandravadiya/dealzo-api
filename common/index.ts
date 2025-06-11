@@ -30,3 +30,28 @@ export {
   ProductVarientUpdateModel,
   ProductVarientModel
 } from './src/sequalize/models/product-varient';
+export {
+  BuyerAddressesCreateModel,
+  BuyerAddressesUpdateModel,
+  BuyerAddressesModel
+} from './src/sequalize/models/buyer-addresses';
+export {
+  SellerCreateModel,
+  SellerUpdateModel,
+  SellerModel
+} from './src/sequalize/models/seller';
+export {
+  SellerAddressesCreateModel,
+  SellerAddressesUpdateModel,
+  SellerAddressesModel
+} from './src/sequalize/models/seller-addresses';
+export {
+  SellerDocumentCreateModel,
+  SellerDocumentUpdateModel,
+  SellerDocumentModel
+} from './src/sequalize/models/seller-document';
+export {
+  SellerReviewCreateModel,
+  SellerReviewUpdateModel,
+  SellerReviewModel
+} from './src/sequalize/models/seller-review';
