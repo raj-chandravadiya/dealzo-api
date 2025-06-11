@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductReviewDefineModel } from './models/product-review';
 import { ProductSizeDefineModel } from './models/product-size';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
@@ -266,4 +267,24 @@ ProductDefineModel.hasMany(ProductSizeDefineModel, {
 // product_size belongs to lookup_details (size category)
 ProductSizeDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'size_category_id'
+});
+
+// product_review belongs to buyer
+ProductReviewDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// buyer has many product_reviews
+BuyerDefineModel.hasMany(ProductReviewDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// product_review belongs to product_varient
+ProductReviewDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'product_varient_id'
+});
+
+// product_varient has many product_reviews
+ProductVarientDefineModel.hasMany(ProductReviewDefineModel, {
+  foreignKey: 'product_varient_id'
 });

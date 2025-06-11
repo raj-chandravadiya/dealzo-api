@@ -66,3 +66,9 @@ export {
   ProductSizeUpdateModel,
   ProductSizeModel
 } from './src/sequalize/models/product-size';
+
+export {
+  ProductReviewCreateModel,
+  ProductReviewUpdateModel,
+  ProductReviewModel
+} from './src/sequalize/models/product-review';
