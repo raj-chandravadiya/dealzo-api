@@ -9,6 +9,9 @@ import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
+import type { ProductModelStatic } from '../models/product';
+import type { ProductVarientModelStatic } from '../models/product-varient';
+import { ProductVarientDefineModel } from '../models/product-varient';
 import { SellerDefineModel } from '../models/seller';
 import type { SellerModelStatic } from '../models/seller';
 import type { SellerAddressesModelStatic } from '../models/seller-addresses';
@@ -19,6 +22,7 @@ import type { SellerReviewModelStatic } from '../models/seller-review';
 import { SellerReviewDefineModel } from '../models/seller-review';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
+import { ProductDefineModel } from './../models/product';
 import { sequelize } from './config';
 
 export interface DbContext {
@@ -33,6 +37,8 @@ export interface DbContext {
   buyer: BuyerModelStatic;
   sellerReview: SellerReviewModelStatic;
   buyerAddresses: BuyerAddressesModelStatic;
+  product: ProductModelStatic;
+  productVarient: ProductVarientModelStatic;
 }
 
 export const db: DbContext = {
@@ -46,5 +52,7 @@ export const db: DbContext = {
   sellerDocument: SellerDocumentDefineModel,
   buyer: BuyerDefineModel,
   sellerReview: SellerReviewDefineModel,
-  buyerAddresses: BuyerAddressesDefineModel
+  buyerAddresses: BuyerAddressesDefineModel,
+  product: ProductDefineModel,
+  productVarient: ProductVarientDefineModel
 };
