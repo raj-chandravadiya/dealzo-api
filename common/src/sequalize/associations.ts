@@ -5,6 +5,7 @@ import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
 import { ProductReviewDefineModel } from './models/product-review';
+import { ProductReviewImagesDefineModel } from './models/product-review-images';
 import { ProductSizeDefineModel } from './models/product-size';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
@@ -287,4 +288,14 @@ ProductReviewDefineModel.belongsTo(ProductVarientDefineModel, {
 // product_varient has many product_reviews
 ProductVarientDefineModel.hasMany(ProductReviewDefineModel, {
   foreignKey: 'product_varient_id'
+});
+
+// Each product_review_images belongs to a product_review
+ProductReviewImagesDefineModel.belongsTo(ProductReviewDefineModel, {
+  foreignKey: 'product_review_id'
+});
+
+// Each product_review has many product_review_images
+ProductReviewDefineModel.hasMany(ProductReviewImagesDefineModel, {
+  foreignKey: 'product_review_id'
 });
