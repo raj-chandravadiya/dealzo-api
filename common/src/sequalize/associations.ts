@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductManufacturingDetailsDefineModel } from './models/product-manufacturing-details';
 import { ProductQuestionDefineModel } from './models/product-question';
 import { ProductReviewDefineModel } from './models/product-review';
 import { ProductReviewImagesDefineModel } from './models/product-review-images';
@@ -314,4 +315,14 @@ ProductQuestionDefineModel.belongsTo(BuyerDefineModel, {
 // product_question answered_by_id belongs to seller
 ProductQuestionDefineModel.belongsTo(SellerDefineModel, {
   foreignKey: 'answered_by_id'
+});
+
+// product_question belongs to product
+ProductManufacturingDetailsDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_questions
+ProductDefineModel.hasMany(ProductManufacturingDetailsDefineModel, {
+  foreignKey: 'product_id'
 });

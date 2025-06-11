@@ -84,3 +84,9 @@ export {
   ProductQuestionUpdateModel,
   ProductQuestionModel
 } from './src/sequalize/models/product-question';
+
+export {
+  ProductManufacturingDetailsCreateModel,
+  ProductManufacturingDetailsUpdateModel,
+  ProductManufacturingDetailsModel
+} from './src/sequalize/models/product-manufacturing-details';

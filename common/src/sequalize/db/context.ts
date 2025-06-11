@@ -31,6 +31,8 @@ import { SellerReviewDefineModel } from '../models/seller-review';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
 import { ProductDefineModel } from './../models/product';
+import { ProductManufacturingDetailsDefineModel } from './../models/product-manufacturing-details';
+import type { ProductManufacturingDetailsModelStatic } from './../models/product-manufacturing-details';
 import { sequelize } from './config';
 
 export interface DbContext {
@@ -51,6 +53,7 @@ export interface DbContext {
   productReview: ProductReviewModelStatic;
   productReviewImages: ProductReviewImagesModelStatic;
   productQuestion: ProductQuestionModelStatic;
+  productManufacturingDetails: ProductManufacturingDetailsModelStatic;
 }
 
 export const db: DbContext = {
@@ -70,5 +73,6 @@ export const db: DbContext = {
   productSize: ProductSizeDefineModel,
   productReview: ProductReviewDefineModel,
   productReviewImages: ProductReviewImagesDefineModel,
-  productQuestion: ProductQuestionDefineModel
+  productQuestion: ProductQuestionDefineModel,
+  productManufacturingDetails: ProductManufacturingDetailsDefineModel
 };
