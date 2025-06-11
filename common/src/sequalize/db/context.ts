@@ -11,6 +11,8 @@ import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
+import type { OrderItemModelStatic } from '../models/order-item';
+import { OrderItemDefineModel } from '../models/order-item';
 import type { OrderModelStatic } from '../models/orders';
 import { OrderDefineModel } from '../models/orders';
 import type { ProductModelStatic } from '../models/product';
@@ -47,6 +49,7 @@ export interface DbContext {
   cart: CartModelStatic;
   wishlist: WishlistModelStatic;
   order: OrderModelStatic;
+  orderItem: OrderItemModelStatic;
 }
 
 export const db: DbContext = {
@@ -65,5 +68,6 @@ export const db: DbContext = {
   productVarient: ProductVarientDefineModel,
   cart: CartDefineModel,
   wishlist: WishlistDefineModel,
-  order: OrderDefineModel
+  order: OrderDefineModel,
+  orderItem: OrderItemDefineModel
 };

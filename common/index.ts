@@ -70,3 +70,8 @@ export {
   OrderUpdateModel,
   OrderModel
 } from './src/sequalize/models/orders';
+export {
+  OrderItemCreateModel,
+  OrderItemUpdateModel,
+  OrderItemModel
+} from './src/sequalize/models/order-item';

@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { CartDefineModel } from './models/cart';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
+import { OrderItemDefineModel } from './models/order-item';
 import { OrderDefineModel } from './models/orders';
 import { ProductDefineModel } from './models/product';
 import { ProductVarientDefineModel } from './models/product-varient';
@@ -316,4 +317,20 @@ OrderDefineModel.belongsTo(LookupDetailsDefineModel, {
 // each lookupdetails has many order
 LookupDetailsDefineModel.hasMany(OrderDefineModel, {
   foreignKey: 'orders_order_status_id_fkey'
+});
+
+OrderItemDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'order_items_order_id_fkey'
+});
+
+OrderDefineModel.hasMany(OrderItemDefineModel, {
+  foreignKey: 'order_items_order_id_fkey'
+});
+
+ProductVarientDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'order_items_product_varient_id_fkey'
+});
+
+OrderDefineModel.hasMany(ProductVarientDefineModel, {
+  foreignKey: 'order_items_product_varient_id_fkey'
 });
