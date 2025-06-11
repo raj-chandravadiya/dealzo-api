@@ -6,6 +6,8 @@ import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductVarientModelStatic } from '../models/product-varient';
+import { ProductVarientDefineModel } from '../models/product-varient';
 import { SellerDefineModel } from '../models/seller';
 import type { SellerModelStatic } from '../models/seller';
 import type { SellerAddressesModelStatic } from '../models/seller-addresses';
@@ -26,7 +28,8 @@ export interface DbContext {
   seller: SellerModelStatic;
   sellerAddresses: SellerAddressesModelStatic;
   sellerDocument: SellerDocumentModelStatic;
-  Product: ProductModelStatic;
+  product: ProductModelStatic;
+  productVarient: ProductVarientModelStatic;
 }
 
 export const db: DbContext = {
@@ -38,5 +41,6 @@ export const db: DbContext = {
   seller: SellerDefineModel,
   sellerAddresses: SellerAddressesDefineModel,
   sellerDocument: SellerDocumentDefineModel,
-  Product: ProductDefineModel
+  product: ProductDefineModel,
+  productVarient: ProductVarientDefineModel
 };

@@ -2,6 +2,7 @@ import { AdminDefineModel } from './models/admin';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { SellerDocumentDefineModel } from './models/seller-document';
@@ -155,4 +156,33 @@ ProductDefineModel.belongsTo(LookupDetailsDefineModel, {
 // each category has many products
 LookupDetailsDefineModel.hasMany(ProductDefineModel, {
   foreignKey: 'products_category_id_fkey'
+});
+
+// each product_varient belongs to one product
+ProductVarientDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_varient_product_id_fkey'
+});
+
+ProductDefineModel.hasMany(ProductVarientDefineModel, {
+  foreignKey: 'product_varient_product_id_fkey'
+});
+
+// each product_varient has one size (from lookup_details)
+ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'product_size_id',
+  as: 'size'
+});
+LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
+  foreignKey: 'product_size_id',
+  as: 'sizeVarients'
+});
+
+// each product_varient has one color (from lookup_details)
+ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'product_color_id',
+  as: 'color'
+});
+LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
+  foreignKey: 'product_color_id',
+  as: 'colorVarients'
 });

@@ -25,3 +25,8 @@ export {
   ProductUpdateModel,
   ProductModel
 } from './src/sequalize/models/product';
+export {
+  ProductVarientCreateModel,
+  ProductVarientUpdateModel,
+  ProductVarientModel
+} from './src/sequalize/models/product-varient';
