@@ -8,6 +8,13 @@ import { OrderItemDefineModel } from './models/order-item';
 import { OrderDefineModel } from './models/orders';
 import { PaymentDefineModel } from './models/payment';
 import { ProductDefineModel } from './models/product';
+import { ProductDescriptionDefineModel } from './models/product-description';
+import { ProductImageDefineModel } from './models/product-images';
+import { ProductManufacturingDetailsDefineModel } from './models/product-manufacturing-details';
+import { ProductQuestionDefineModel } from './models/product-question';
+import { ProductReviewDefineModel } from './models/product-review';
+import { ProductReviewImagesDefineModel } from './models/product-review-images';
+import { ProductSizeDefineModel } from './models/product-size';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
@@ -205,6 +212,7 @@ BuyerAddressesDefineModel.belongsTo(LookupDetailsDefineModel, {
 LookupDetailsDefineModel.hasMany(BuyerAddressesDefineModel, {
   foreignKey: 'buyer_addresses_address_type_id_fkey'
 });
+
 // each product belongs to a seller
 ProductDefineModel.belongsTo(SellerDefineModel, {
   foreignKey: 'products_seller_id_fkey'
@@ -239,6 +247,7 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'product_size_id',
   as: 'size'
 });
+
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_size_id',
   as: 'sizeVarients'
@@ -366,4 +375,94 @@ PaymentDefineModel.belongsTo(LookupDetailsDefineModel, {
 // each lookupdetails has many lookupdetails
 LookupDetailsDefineModel.hasMany(PaymentDefineModel, {
   foreignKey: 'payment_payment_status_id_fkey'
+});
+
+// product_size belongs to product
+ProductSizeDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_sizes
+ProductDefineModel.hasMany(ProductSizeDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_size belongs to lookup_details (size category)
+ProductSizeDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'size_category_id'
+});
+
+// product_review belongs to buyer
+ProductReviewDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// buyer has many product_reviews
+BuyerDefineModel.hasMany(ProductReviewDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// product_review belongs to product_varient
+ProductReviewDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'product_varient_id'
+});
+
+// product_varient has many product_reviews
+ProductVarientDefineModel.hasMany(ProductReviewDefineModel, {
+  foreignKey: 'product_varient_id'
+});
+
+// Each product_review_images belongs to a product_review
+ProductReviewImagesDefineModel.belongsTo(ProductReviewDefineModel, {
+  foreignKey: 'product_review_id'
+});
+
+// Each product_review has many product_review_images
+ProductReviewDefineModel.hasMany(ProductReviewImagesDefineModel, {
+  foreignKey: 'product_review_id'
+});
+
+// product_question belongs to product
+ProductQuestionDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_question belongs to buyer
+ProductQuestionDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_id'
+});
+
+// product_question answered_by_id belongs to seller
+ProductQuestionDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'answered_by_id'
+});
+
+// product_question belongs to product
+ProductManufacturingDetailsDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_questions
+ProductDefineModel.hasMany(ProductManufacturingDetailsDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_images belongs to product_variant
+ProductImageDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'product_varient_id'
+});
+
+// product_variant has many product_images
+ProductVarientDefineModel.hasMany(ProductImageDefineModel, {
+  foreignKey: 'product_varient_id'
+});
+
+// product_descriptions belongs to product
+ProductDescriptionDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_descriptions
+ProductDefineModel.hasMany(ProductDescriptionDefineModel, {
+  foreignKey: 'product_id'
 });

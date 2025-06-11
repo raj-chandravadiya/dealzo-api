@@ -80,3 +80,45 @@ export {
   PaymentUpdateModel,
   PaymentModel
 } from './src/sequalize/models/payment';
+
+export {
+  ProductSizeCreateModel,
+  ProductSizeUpdateModel,
+  ProductSizeModel
+} from './src/sequalize/models/product-size';
+
+export {
+  ProductReviewCreateModel,
+  ProductReviewUpdateModel,
+  ProductReviewModel
+} from './src/sequalize/models/product-review';
+
+export {
+  ProductReviewImagesCreateModel,
+  ProductReviewImagesUpdateModel,
+  ProductReviewImagesModel
+} from './src/sequalize/models/product-review-images';
+
+export {
+  ProductQuestionCreateModel,
+  ProductQuestionUpdateModel,
+  ProductQuestionModel
+} from './src/sequalize/models/product-question';
+
+export {
+  ProductManufacturingDetailsCreateModel,
+  ProductManufacturingDetailsUpdateModel,
+  ProductManufacturingDetailsModel
+} from './src/sequalize/models/product-manufacturing-details';
+
+export {
+  ProductImageCreateModel,
+  ProductImageUpdateModel,
+  ProductImageModel
+} from './src/sequalize/models/product-images';
+
+export {
+  ProductDescriptionCreateModel,
+  ProductDescriptionUpdateModel,
+  ProductDescriptionModel
+} from './src/sequalize/models/product-description';

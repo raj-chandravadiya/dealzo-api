@@ -18,6 +18,18 @@ import { OrderDefineModel } from '../models/orders';
 import type { PaymentModelStatic } from '../models/payment';
 import { PaymentDefineModel } from '../models/payment';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductDescriptionModelStatic } from '../models/product-description';
+import { ProductDescriptionDefineModel } from '../models/product-description';
+import type { ProductImageModelStatic } from '../models/product-images';
+import { ProductImageDefineModel } from '../models/product-images';
+import type { ProductQuestionModelStatic } from '../models/product-question';
+import { ProductQuestionDefineModel } from '../models/product-question';
+import type { ProductReviewModelStatic } from '../models/product-review';
+import { ProductReviewDefineModel } from '../models/product-review';
+import type { ProductReviewImagesModelStatic } from '../models/product-review-images';
+import { ProductReviewImagesDefineModel } from '../models/product-review-images';
+import type { ProductSizeModelStatic } from '../models/product-size';
+import { ProductSizeDefineModel } from '../models/product-size';
 import type { ProductVarientModelStatic } from '../models/product-varient';
 import { ProductVarientDefineModel } from '../models/product-varient';
 import { SellerDefineModel } from '../models/seller';
@@ -33,6 +45,8 @@ import type { UserModelStatic } from '../models/user';
 import type { WishlistModelStatic } from '../models/wishlist';
 import { WishlistDefineModel } from '../models/wishlist';
 import { ProductDefineModel } from './../models/product';
+import { ProductManufacturingDetailsDefineModel } from './../models/product-manufacturing-details';
+import type { ProductManufacturingDetailsModelStatic } from './../models/product-manufacturing-details';
 import { sequelize } from './config';
 export interface DbContext {
   sequelize: Sequelize;
@@ -53,6 +67,13 @@ export interface DbContext {
   order: OrderModelStatic;
   orderItem: OrderItemModelStatic;
   payment: PaymentModelStatic;
+  productSize: ProductSizeModelStatic;
+  productReview: ProductReviewModelStatic;
+  productReviewImages: ProductReviewImagesModelStatic;
+  productQuestion: ProductQuestionModelStatic;
+  productManufacturingDetails: ProductManufacturingDetailsModelStatic;
+  productImage: ProductImageModelStatic;
+  productDescription: ProductDescriptionModelStatic;
 }
 
 export const db: DbContext = {
@@ -73,5 +94,12 @@ export const db: DbContext = {
   wishlist: WishlistDefineModel,
   order: OrderDefineModel,
   orderItem: OrderItemDefineModel,
-  payment: PaymentDefineModel
+  payment: PaymentDefineModel,
+  productSize: ProductSizeDefineModel,
+  productReview: ProductReviewDefineModel,
+  productReviewImages: ProductReviewImagesDefineModel,
+  productQuestion: ProductQuestionDefineModel,
+  productManufacturingDetails: ProductManufacturingDetailsDefineModel,
+  productImage: ProductImageDefineModel,
+  productDescription: ProductDescriptionDefineModel
 };
