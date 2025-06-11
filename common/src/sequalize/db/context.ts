@@ -5,10 +5,18 @@ import type { BuyerModelStatic } from '../models/buyer';
 import { BuyerDefineModel } from '../models/buyer';
 import type { BuyerAddressesModelStatic } from '../models/buyer-addresses';
 import { BuyerAddressesDefineModel } from '../models/buyer-addresses';
+import type { CartModelStatic } from '../models/cart';
+import { CartDefineModel } from '../models/cart';
 import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
+import type { OrderItemModelStatic } from '../models/order-item';
+import { OrderItemDefineModel } from '../models/order-item';
+import type { OrderModelStatic } from '../models/orders';
+import { OrderDefineModel } from '../models/orders';
+import type { PaymentModelStatic } from '../models/payment';
+import { PaymentDefineModel } from '../models/payment';
 import type { ProductModelStatic } from '../models/product';
 import type { ProductVarientModelStatic } from '../models/product-varient';
 import { ProductVarientDefineModel } from '../models/product-varient';
@@ -22,9 +30,10 @@ import type { SellerReviewModelStatic } from '../models/seller-review';
 import { SellerReviewDefineModel } from '../models/seller-review';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
+import type { WishlistModelStatic } from '../models/wishlist';
+import { WishlistDefineModel } from '../models/wishlist';
 import { ProductDefineModel } from './../models/product';
 import { sequelize } from './config';
-
 export interface DbContext {
   sequelize: Sequelize;
   lookups: LookupsModelStatic;
@@ -39,6 +48,11 @@ export interface DbContext {
   buyerAddresses: BuyerAddressesModelStatic;
   product: ProductModelStatic;
   productVarient: ProductVarientModelStatic;
+  cart: CartModelStatic;
+  wishlist: WishlistModelStatic;
+  order: OrderModelStatic;
+  orderItem: OrderItemModelStatic;
+  payment: PaymentModelStatic;
 }
 
 export const db: DbContext = {
@@ -54,5 +68,10 @@ export const db: DbContext = {
   sellerReview: SellerReviewDefineModel,
   buyerAddresses: BuyerAddressesDefineModel,
   product: ProductDefineModel,
-  productVarient: ProductVarientDefineModel
+  productVarient: ProductVarientDefineModel,
+  cart: CartDefineModel,
+  wishlist: WishlistDefineModel,
+  order: OrderDefineModel,
+  orderItem: OrderItemDefineModel,
+  payment: PaymentDefineModel
 };

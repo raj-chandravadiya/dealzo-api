@@ -1,8 +1,12 @@
 import { AdminDefineModel } from './models/admin';
 import { BuyerDefineModel } from './models/buyer';
 import { BuyerAddressesDefineModel } from './models/buyer-addresses';
+import { CartDefineModel } from './models/cart';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
+import { OrderItemDefineModel } from './models/order-item';
+import { OrderDefineModel } from './models/orders';
+import { PaymentDefineModel } from './models/payment';
 import { ProductDefineModel } from './models/product';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
@@ -10,6 +14,7 @@ import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { SellerDocumentDefineModel } from './models/seller-document';
 import { SellerReviewDefineModel } from './models/seller-review';
 import { UserDefineModel } from './models/user';
+import { WishlistDefineModel } from './models/wishlist';
 
 // Each LookupDetail belongs to a Lookup.
 LookupDetailsDefineModel.belongsTo(LookupsDefineModel, {
@@ -244,7 +249,121 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'product_color_id',
   as: 'color'
 });
+
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_color_id',
   as: 'colorVarients'
+});
+
+// each Cart belongs to product-verient
+CartDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'cart_buyer_id_fkey'
+});
+
+// each product-varient has many cart
+ProductVarientDefineModel.hasMany(CartDefineModel, {
+  foreignKey: 'cart_buyer_id_fkey'
+});
+
+// each Cart belongs to buyer
+CartDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'cart_product_varient_id_fkey'
+});
+
+// each buyer has many cart
+BuyerDefineModel.hasMany(CartDefineModel, {
+  foreignKey: 'cart_product_varient_id_fkey'
+});
+
+// each wishlist belogg to buyer
+WishlistDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'wishlist_buyer_id_fkey'
+});
+
+// each buyer has many wishlist
+BuyerDefineModel.hasMany(WishlistDefineModel, {
+  foreignKey: 'wishlist_buyer_id_fkey'
+});
+
+// each wishlist belog to product-varient
+WishlistDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'wishlist_product_varient_id_fkey'
+});
+
+// each product-varient has many wishlist
+ProductVarientDefineModel.hasMany(WishlistDefineModel, {
+  foreignKey: 'wishlist_product_varient_id_fkey'
+});
+
+// each order belong to buyer-addresses
+OrderDefineModel.belongsTo(BuyerAddressesDefineModel, {
+  foreignKey: 'orders_buyer_address_id_fkey'
+});
+// each buyer-addresses has many order
+BuyerAddressesDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_buyer_address_id_fkey'
+});
+// each order belong to Buyer
+OrderDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'orders_buyer_id_fkey'
+});
+// each buyer has many order
+BuyerDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_buyer_id_fkey'
+});
+// each order belong to lookupdetails
+OrderDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'orders_order_status_id_fkey'
+});
+// each lookupdetails has many order
+LookupDetailsDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_order_status_id_fkey'
+});
+// each order-item belong to order
+OrderItemDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'order_items_order_id_fkey'
+});
+// each order has many order-item
+OrderDefineModel.hasMany(OrderItemDefineModel, {
+  foreignKey: 'order_items_order_id_fkey'
+});
+// each product-varient belong to order
+ProductVarientDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'order_items_product_varient_id_fkey'
+});
+// each order has many product-varient
+OrderDefineModel.hasMany(ProductVarientDefineModel, {
+  foreignKey: 'order_items_product_varient_id_fkey'
+});
+// each payment belong to buyer
+PaymentDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'payment_buyer_id_fkey'
+});
+// each buyer has many paymet
+BuyerDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_buyer_id_fkey'
+});
+// each payment belong to order
+PaymentDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'payment_order_id_fkey'
+});
+// each order has many payment
+OrderDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_order_id_fkey'
+});
+// each payment belong to lookupdetails
+PaymentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'payment_payment_method_id_fkey'
+});
+// each lookupdetails hasmany payment
+LookupDetailsDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_payment_method_id_fkey'
+});
+// each payment belong to lookupdetails
+PaymentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'payment_payment_status_id_fkey'
+});
+// each lookupdetails has many lookupdetails
+LookupDetailsDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_payment_status_id_fkey'
 });

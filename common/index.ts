@@ -55,3 +55,28 @@ export {
   SellerReviewUpdateModel,
   SellerReviewModel
 } from './src/sequalize/models/seller-review';
+export {
+  CartCreateModel,
+  CartUpdateModel,
+  CartModel
+} from './src/sequalize/models/cart';
+export {
+  WishlistCreateModel,
+  WishlistUpdateModel,
+  WishlistModel
+} from './src/sequalize/models/wishlist';
+export {
+  OrderCreateModel,
+  OrderUpdateModel,
+  OrderModel
+} from './src/sequalize/models/orders';
+export {
+  OrderItemCreateModel,
+  OrderItemUpdateModel,
+  OrderItemModel
+} from './src/sequalize/models/order-item';
+export {
+  PaymentCreateModel,
+  PaymentUpdateModel,
+  PaymentModel
+} from './src/sequalize/models/payment';
