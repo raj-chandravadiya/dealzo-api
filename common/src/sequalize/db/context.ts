@@ -10,6 +10,8 @@ import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductSizeModelStatic } from '../models/product-size';
+import { ProductSizeDefineModel } from '../models/product-size';
 import type { ProductVarientModelStatic } from '../models/product-varient';
 import { ProductVarientDefineModel } from '../models/product-varient';
 import { SellerDefineModel } from '../models/seller';
@@ -39,6 +41,7 @@ export interface DbContext {
   buyerAddresses: BuyerAddressesModelStatic;
   product: ProductModelStatic;
   productVarient: ProductVarientModelStatic;
+  productSize: ProductSizeModelStatic;
 }
 
 export const db: DbContext = {
@@ -54,5 +57,6 @@ export const db: DbContext = {
   sellerReview: SellerReviewDefineModel,
   buyerAddresses: BuyerAddressesDefineModel,
   product: ProductDefineModel,
-  productVarient: ProductVarientDefineModel
+  productVarient: ProductVarientDefineModel,
+  productSize: ProductSizeDefineModel
 };

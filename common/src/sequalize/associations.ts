@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
+import { ProductSizeDefineModel } from './models/product-size';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
@@ -200,6 +201,7 @@ BuyerAddressesDefineModel.belongsTo(LookupDetailsDefineModel, {
 LookupDetailsDefineModel.hasMany(BuyerAddressesDefineModel, {
   foreignKey: 'buyer_addresses_address_type_id_fkey'
 });
+
 // each product belongs to a seller
 ProductDefineModel.belongsTo(SellerDefineModel, {
   foreignKey: 'products_seller_id_fkey'
@@ -234,6 +236,7 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'product_size_id',
   as: 'size'
 });
+
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_size_id',
   as: 'sizeVarients'
@@ -244,7 +247,23 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'product_color_id',
   as: 'color'
 });
+
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_color_id',
   as: 'colorVarients'
+});
+
+// product_size belongs to product
+ProductSizeDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_sizes
+ProductDefineModel.hasMany(ProductSizeDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_size belongs to lookup_details (size category)
+ProductSizeDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'size_category_id'
 });
