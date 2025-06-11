@@ -90,3 +90,9 @@ export {
   ProductManufacturingDetailsUpdateModel,
   ProductManufacturingDetailsModel
 } from './src/sequalize/models/product-manufacturing-details';
+
+export {
+  ProductImageCreateModel,
+  ProductImageUpdateModel,
+  ProductImageModel
+} from './src/sequalize/models/product-images';
