@@ -1,9 +1,12 @@
 import { AdminDefineModel } from './models/admin';
+import { BuyerDefineModel } from './models/buyer';
+import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { SellerDefineModel } from './models/seller';
 import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { SellerDocumentDefineModel } from './models/seller-document';
+import { SellerReviewDefineModel } from './models/seller-review';
 import { UserDefineModel } from './models/user';
 
 // Each LookupDetail belongs to a Lookup.
@@ -134,4 +137,64 @@ SellerDocumentDefineModel.belongsTo(SellerDefineModel, {
 // each seller has many seller-documents
 SellerDefineModel.hasMany(SellerDocumentDefineModel, {
   foreignKey: 'seller_document_seller_id_fkey'
+});
+
+// each buyer belong to user
+BuyerDefineModel.belongsTo(UserDefineModel, {
+  foreignKey: 'buyer_user_id_fkey'
+});
+
+// each user has many buyer
+UserDefineModel.hasMany(BuyerDefineModel, {
+  foreignKey: 'buyer_user_id_fkey'
+});
+
+// each buyer belong to lookdetails
+BuyerDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'buyer_user_status_id_fkey'
+});
+
+// each lookdetails has many buyer
+LookupDetailsDefineModel.hasMany(BuyerDefineModel, {
+  foreignKey: 'buyer_user_status_id_fkey'
+});
+
+// each seller-review belong to Buyer
+SellerReviewDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'seller_review_buyer_id_fkey'
+});
+
+// each buyer has many seller-review
+BuyerDefineModel.hasMany(SellerReviewDefineModel, {
+  foreignKey: 'seller_review_buyer_id_fkey'
+});
+
+// each seller-review belong to seller
+SellerReviewDefineModel.belongsTo(SellerDefineModel, {
+  foreignKey: 'seller_review_seller_id_fkey'
+});
+
+// each seller has many seller-review
+SellerDefineModel.hasMany(SellerReviewDefineModel, {
+  foreignKey: 'seller_review_seller_id_fkey'
+});
+
+// each buyer-address belong to buyer
+BuyerAddressesDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_addresses_buyer_id_fkey'
+});
+
+// each buyer has many buyer-address
+BuyerDefineModel.hasMany(BuyerAddressesDefineModel, {
+  foreignKey: 'buyer_addresses_buyer_id_fkey'
+});
+
+// each buyer-address belong to lookdetails
+BuyerAddressesDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'buyer_addresses_address_type_id_fkey'
+});
+
+// each lookupdetails has many buyer-address
+LookupDetailsDefineModel.hasMany(BuyerAddressesDefineModel, {
+  foreignKey: 'buyer_addresses_address_type_id_fkey'
 });
