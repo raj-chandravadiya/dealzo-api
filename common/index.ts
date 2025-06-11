@@ -75,3 +75,8 @@ export {
   OrderItemUpdateModel,
   OrderItemModel
 } from './src/sequalize/models/order-item';
+export {
+  PaymentCreateModel,
+  PaymentUpdateModel,
+  PaymentModel
+} from './src/sequalize/models/payment';

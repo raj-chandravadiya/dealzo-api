@@ -15,6 +15,8 @@ import type { OrderItemModelStatic } from '../models/order-item';
 import { OrderItemDefineModel } from '../models/order-item';
 import type { OrderModelStatic } from '../models/orders';
 import { OrderDefineModel } from '../models/orders';
+import type { PaymentModelStatic } from '../models/payment';
+import { PaymentDefineModel } from '../models/payment';
 import type { ProductModelStatic } from '../models/product';
 import type { ProductVarientModelStatic } from '../models/product-varient';
 import { ProductVarientDefineModel } from '../models/product-varient';
@@ -50,6 +52,7 @@ export interface DbContext {
   wishlist: WishlistModelStatic;
   order: OrderModelStatic;
   orderItem: OrderItemModelStatic;
+  payment: PaymentModelStatic;
 }
 
 export const db: DbContext = {
@@ -69,5 +72,6 @@ export const db: DbContext = {
   cart: CartDefineModel,
   wishlist: WishlistDefineModel,
   order: OrderDefineModel,
-  orderItem: OrderItemDefineModel
+  orderItem: OrderItemDefineModel,
+  payment: PaymentDefineModel
 };

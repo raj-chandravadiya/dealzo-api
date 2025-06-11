@@ -6,6 +6,7 @@ import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { OrderItemDefineModel } from './models/order-item';
 import { OrderDefineModel } from './models/orders';
+import { PaymentDefineModel } from './models/payment';
 import { ProductDefineModel } from './models/product';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
@@ -318,19 +319,51 @@ OrderDefineModel.belongsTo(LookupDetailsDefineModel, {
 LookupDetailsDefineModel.hasMany(OrderDefineModel, {
   foreignKey: 'orders_order_status_id_fkey'
 });
-
+// each order-item belong to order
 OrderItemDefineModel.belongsTo(OrderDefineModel, {
   foreignKey: 'order_items_order_id_fkey'
 });
-
+// each order has many order-item
 OrderDefineModel.hasMany(OrderItemDefineModel, {
   foreignKey: 'order_items_order_id_fkey'
 });
-
+// each product-varient belong to order
 ProductVarientDefineModel.belongsTo(OrderDefineModel, {
   foreignKey: 'order_items_product_varient_id_fkey'
 });
-
+// each order has many product-varient
 OrderDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'order_items_product_varient_id_fkey'
+});
+// each payment belong to buyer
+PaymentDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'payment_buyer_id_fkey'
+});
+// each buyer has many paymet
+BuyerDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_buyer_id_fkey'
+});
+// each payment belong to order
+PaymentDefineModel.belongsTo(OrderDefineModel, {
+  foreignKey: 'payment_order_id_fkey'
+});
+// each order has many payment
+OrderDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_order_id_fkey'
+});
+// each payment belong to lookupdetails
+PaymentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'payment_payment_method_id_fkey'
+});
+// each lookupdetails hasmany payment
+LookupDetailsDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_payment_method_id_fkey'
+});
+// each payment belong to lookupdetails
+PaymentDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'payment_payment_status_id_fkey'
+});
+// each lookupdetails has many lookupdetails
+LookupDetailsDefineModel.hasMany(PaymentDefineModel, {
+  foreignKey: 'payment_payment_status_id_fkey'
 });
