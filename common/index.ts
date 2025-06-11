@@ -60,3 +60,8 @@ export {
   CartUpdateModel,
   CartModel
 } from './src/sequalize/models/cart';
+export {
+  WishlistCreateModel,
+  WishlistUpdateModel,
+  WishlistModel
+} from './src/sequalize/models/wishlist';

@@ -24,6 +24,8 @@ import type { SellerReviewModelStatic } from '../models/seller-review';
 import { SellerReviewDefineModel } from '../models/seller-review';
 import { UserDefineModel } from '../models/user';
 import type { UserModelStatic } from '../models/user';
+import type { WishlistModelStatic } from '../models/wishlist';
+import { WishlistDefineModel } from '../models/wishlist';
 import { ProductDefineModel } from './../models/product';
 import { sequelize } from './config';
 
@@ -42,6 +44,7 @@ export interface DbContext {
   product: ProductModelStatic;
   productVarient: ProductVarientModelStatic;
   cart: CartModelStatic;
+  wishlist: WishlistModelStatic;
 }
 
 export const db: DbContext = {
@@ -58,5 +61,6 @@ export const db: DbContext = {
   buyerAddresses: BuyerAddressesDefineModel,
   product: ProductDefineModel,
   productVarient: ProductVarientDefineModel,
-  cart: CartDefineModel
+  cart: CartDefineModel,
+  wishlist: WishlistDefineModel
 };

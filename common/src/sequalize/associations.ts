@@ -11,6 +11,7 @@ import { SellerAddressesDefineModel } from './models/seller-addresses';
 import { SellerDocumentDefineModel } from './models/seller-document';
 import { SellerReviewDefineModel } from './models/seller-review';
 import { UserDefineModel } from './models/user';
+import { WishlistDefineModel } from './models/wishlist';
 
 // Each LookupDetail belongs to a Lookup.
 LookupDetailsDefineModel.belongsTo(LookupsDefineModel, {
@@ -245,23 +246,48 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
   foreignKey: 'product_color_id',
   as: 'color'
 });
+
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_color_id',
   as: 'colorVarients'
 });
 
+// each Cart belongs to product-verient
 CartDefineModel.belongsTo(ProductVarientDefineModel, {
   foreignKey: 'cart_buyer_id_fkey'
 });
 
+// each product-varient has many cart
 ProductVarientDefineModel.hasMany(CartDefineModel, {
   foreignKey: 'cart_buyer_id_fkey'
 });
 
+// each Cart belongs to buyer
 CartDefineModel.belongsTo(BuyerDefineModel, {
   foreignKey: 'cart_product_varient_id_fkey'
 });
 
+// each buyer has many cart
 BuyerDefineModel.hasMany(CartDefineModel, {
   foreignKey: 'cart_product_varient_id_fkey'
+});
+
+// each wishlist belogg to buyer
+WishlistDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'wishlist_buyer_id_fkey'
+});
+
+// each buyer has many wishlist
+BuyerDefineModel.hasMany(WishlistDefineModel, {
+  foreignKey: 'wishlist_buyer_id_fkey'
+});
+
+// each wishlist belog to product-varient
+WishlistDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'wishlist_product_varient_id_fkey'
+});
+
+// each product-varient has many wishlist
+ProductVarientDefineModel.hasMany(WishlistDefineModel, {
+  foreignKey: 'wishlist_product_varient_id_fkey'
 });
