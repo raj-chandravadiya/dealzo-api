@@ -65,3 +65,8 @@ export {
   WishlistUpdateModel,
   WishlistModel
 } from './src/sequalize/models/wishlist';
+export {
+  OrderCreateModel,
+  OrderUpdateModel,
+  OrderModel
+} from './src/sequalize/models/orders';

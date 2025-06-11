@@ -11,6 +11,8 @@ import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
 import type { LookupsModelStatic } from '../models/lookups';
+import type { OrderModelStatic } from '../models/orders';
+import { OrderDefineModel } from '../models/orders';
 import type { ProductModelStatic } from '../models/product';
 import type { ProductVarientModelStatic } from '../models/product-varient';
 import { ProductVarientDefineModel } from '../models/product-varient';
@@ -28,7 +30,6 @@ import type { WishlistModelStatic } from '../models/wishlist';
 import { WishlistDefineModel } from '../models/wishlist';
 import { ProductDefineModel } from './../models/product';
 import { sequelize } from './config';
-
 export interface DbContext {
   sequelize: Sequelize;
   lookups: LookupsModelStatic;
@@ -45,6 +46,7 @@ export interface DbContext {
   productVarient: ProductVarientModelStatic;
   cart: CartModelStatic;
   wishlist: WishlistModelStatic;
+  order: OrderModelStatic;
 }
 
 export const db: DbContext = {
@@ -62,5 +64,6 @@ export const db: DbContext = {
   product: ProductDefineModel,
   productVarient: ProductVarientDefineModel,
   cart: CartDefineModel,
-  wishlist: WishlistDefineModel
+  wishlist: WishlistDefineModel,
+  order: OrderDefineModel
 };

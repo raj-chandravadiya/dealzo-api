@@ -4,6 +4,7 @@ import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { CartDefineModel } from './models/cart';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
+import { OrderDefineModel } from './models/orders';
 import { ProductDefineModel } from './models/product';
 import { ProductVarientDefineModel } from './models/product-varient';
 import { SellerDefineModel } from './models/seller';
@@ -290,4 +291,29 @@ WishlistDefineModel.belongsTo(ProductVarientDefineModel, {
 // each product-varient has many wishlist
 ProductVarientDefineModel.hasMany(WishlistDefineModel, {
   foreignKey: 'wishlist_product_varient_id_fkey'
+});
+
+// each order belong to buyer-addresses
+OrderDefineModel.belongsTo(BuyerAddressesDefineModel, {
+  foreignKey: 'orders_buyer_address_id_fkey'
+});
+// each buyer-addresses has many order
+BuyerAddressesDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_buyer_address_id_fkey'
+});
+// each order belong to Buyer
+OrderDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'orders_buyer_id_fkey'
+});
+// each buyer has many order
+BuyerDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_buyer_id_fkey'
+});
+// each order belong to lookupdetails
+OrderDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'orders_order_status_id_fkey'
+});
+// each lookupdetails has many order
+LookupDetailsDefineModel.hasMany(OrderDefineModel, {
+  foreignKey: 'orders_order_status_id_fkey'
 });
