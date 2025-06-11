@@ -3,6 +3,8 @@ import { AdminDefineModel } from '../models/admin';
 import type { AdminModelStatic } from '../models/admin';
 import type { BuyerModelStatic } from '../models/buyer';
 import { BuyerDefineModel } from '../models/buyer';
+import type { BuyerAddressesModelStatic } from '../models/buyer-addresses';
+import { BuyerAddressesDefineModel } from '../models/buyer-addresses';
 import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
@@ -30,6 +32,7 @@ export interface DbContext {
   sellerDocument: SellerDocumentModelStatic;
   buyer: BuyerModelStatic;
   sellerReview: SellerReviewModelStatic;
+  buyerAddresses: BuyerAddressesModelStatic;
 }
 
 export const db: DbContext = {
@@ -42,5 +45,6 @@ export const db: DbContext = {
   sellerAddresses: SellerAddressesDefineModel,
   sellerDocument: SellerDocumentDefineModel,
   buyer: BuyerDefineModel,
-  sellerReview: SellerReviewDefineModel
+  sellerReview: SellerReviewDefineModel,
+  buyerAddresses: BuyerAddressesDefineModel
 };

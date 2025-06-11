@@ -1,5 +1,6 @@
 import { AdminDefineModel } from './models/admin';
 import { BuyerDefineModel } from './models/buyer';
+import { BuyerAddressesDefineModel } from './models/buyer-addresses';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { SellerDefineModel } from './models/seller';
@@ -176,4 +177,24 @@ SellerReviewDefineModel.belongsTo(SellerDefineModel, {
 // each seller has many seller-review
 SellerDefineModel.hasMany(SellerReviewDefineModel, {
   foreignKey: 'seller_review_seller_id_fkey'
+});
+
+// each buyer-address belong to buyer
+BuyerAddressesDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'buyer_addresses_buyer_id_fkey'
+});
+
+// each buyer has many buyer-address
+BuyerDefineModel.hasMany(BuyerAddressesDefineModel, {
+  foreignKey: 'buyer_addresses_buyer_id_fkey'
+});
+
+// each buyer-address belong to lookdetails
+BuyerAddressesDefineModel.belongsTo(LookupDetailsDefineModel, {
+  foreignKey: 'buyer_addresses_address_type_id_fkey'
+});
+
+// each lookupdetails has many buyer-address
+LookupDetailsDefineModel.hasMany(BuyerAddressesDefineModel, {
+  foreignKey: 'buyer_addresses_address_type_id_fkey'
 });
