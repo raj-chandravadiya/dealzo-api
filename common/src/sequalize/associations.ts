@@ -1,6 +1,7 @@
 import { AdminDefineModel } from './models/admin';
 import { BuyerDefineModel } from './models/buyer';
 import { BuyerAddressesDefineModel } from './models/buyer-addresses';
+import { CartDefineModel } from './models/cart';
 import { LookupDetailsDefineModel } from './models/lookup-details';
 import { LookupsDefineModel } from './models/lookups';
 import { ProductDefineModel } from './models/product';
@@ -247,4 +248,20 @@ ProductVarientDefineModel.belongsTo(LookupDetailsDefineModel, {
 LookupDetailsDefineModel.hasMany(ProductVarientDefineModel, {
   foreignKey: 'product_color_id',
   as: 'colorVarients'
+});
+
+CartDefineModel.belongsTo(ProductVarientDefineModel, {
+  foreignKey: 'cart_buyer_id_fkey'
+});
+
+ProductVarientDefineModel.hasMany(CartDefineModel, {
+  foreignKey: 'cart_buyer_id_fkey'
+});
+
+CartDefineModel.belongsTo(BuyerDefineModel, {
+  foreignKey: 'cart_product_varient_id_fkey'
+});
+
+BuyerDefineModel.hasMany(CartDefineModel, {
+  foreignKey: 'cart_product_varient_id_fkey'
 });

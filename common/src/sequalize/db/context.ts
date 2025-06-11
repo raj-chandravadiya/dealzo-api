@@ -5,6 +5,8 @@ import type { BuyerModelStatic } from '../models/buyer';
 import { BuyerDefineModel } from '../models/buyer';
 import type { BuyerAddressesModelStatic } from '../models/buyer-addresses';
 import { BuyerAddressesDefineModel } from '../models/buyer-addresses';
+import type { CartModelStatic } from '../models/cart';
+import { CartDefineModel } from '../models/cart';
 import { LookupDetailsDefineModel } from '../models/lookup-details';
 import type { LookupDetailsModelStatic } from '../models/lookup-details';
 import { LookupsDefineModel } from '../models/lookups';
@@ -39,6 +41,7 @@ export interface DbContext {
   buyerAddresses: BuyerAddressesModelStatic;
   product: ProductModelStatic;
   productVarient: ProductVarientModelStatic;
+  cart: CartModelStatic;
 }
 
 export const db: DbContext = {
@@ -54,5 +57,6 @@ export const db: DbContext = {
   sellerReview: SellerReviewDefineModel,
   buyerAddresses: BuyerAddressesDefineModel,
   product: ProductDefineModel,
-  productVarient: ProductVarientDefineModel
+  productVarient: ProductVarientDefineModel,
+  cart: CartDefineModel
 };

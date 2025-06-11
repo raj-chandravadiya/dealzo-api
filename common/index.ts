@@ -1,8 +1,3 @@
-import {
-  BuyerAddressesCreateModel,
-  BuyerAddressesUpdateModel,
-  BuyerAddressesModel
-} from './src/sequalize/models/buyer-addresses';
 export { db, DbContext } from './src/sequalize/db/context';
 export { sequelize } from './src/sequalize/db/config';
 export {
@@ -60,3 +55,8 @@ export {
   SellerReviewUpdateModel,
   SellerReviewModel
 } from './src/sequalize/models/seller-review';
+export {
+  CartCreateModel,
+  CartUpdateModel,
+  CartModel
+} from './src/sequalize/models/cart';
