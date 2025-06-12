@@ -18,6 +18,8 @@ import { OrderDefineModel } from '../models/orders';
 import type { PaymentModelStatic } from '../models/payment';
 import { PaymentDefineModel } from '../models/payment';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductAttributeModelStatic } from '../models/product-attributes';
+import { ProductAttributeDefineModel } from '../models/product-attributes';
 import type { ProductColorModelStatic } from '../models/product-color';
 import { ProductColorDefineModel } from '../models/product-color';
 import type { ProductDescriptionModelStatic } from '../models/product-description';
@@ -78,6 +80,7 @@ export interface DbContext {
   productImage: ProductImageModelStatic;
   productDescription: ProductDescriptionModelStatic;
   productColor: ProductColorModelStatic;
+  productAttributes: ProductAttributeModelStatic;
 }
 
 export const db: DbContext = {
@@ -106,5 +109,6 @@ export const db: DbContext = {
   productManufacturingDetails: ProductManufacturingDetailsDefineModel,
   productImage: ProductImageDefineModel,
   productDescription: ProductDescriptionDefineModel,
-  productColor: ProductColorDefineModel
+  productColor: ProductColorDefineModel,
+  productAttributes: ProductAttributeDefineModel
 };

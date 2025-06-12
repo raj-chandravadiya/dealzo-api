@@ -128,3 +128,9 @@ export {
   ProductColorUpdateModel,
   ProductColorModel
 } from './src/sequalize/models/product-color';
+
+export {
+  ProductAttributeCreateModel,
+  ProductAttributeUpdateModel,
+  ProductAttributeModel
+} from './src/sequalize/models/product-attributes';
