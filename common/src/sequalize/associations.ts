@@ -8,6 +8,7 @@ import { OrderItemDefineModel } from './models/order-item';
 import { OrderDefineModel } from './models/orders';
 import { PaymentDefineModel } from './models/payment';
 import { ProductDefineModel } from './models/product';
+import { ProductColorDefineModel } from './models/product-color';
 import { ProductDescriptionDefineModel } from './models/product-description';
 import { ProductImageDefineModel } from './models/product-images';
 import { ProductManufacturingDetailsDefineModel } from './models/product-manufacturing-details';
@@ -464,5 +465,15 @@ ProductDescriptionDefineModel.belongsTo(ProductDefineModel, {
 
 // product has many product_descriptions
 ProductDefineModel.hasMany(ProductDescriptionDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product_color belongs to product
+ProductColorDefineModel.belongsTo(ProductDefineModel, {
+  foreignKey: 'product_id'
+});
+
+// product has many product_colors
+ProductDefineModel.hasMany(ProductColorDefineModel, {
   foreignKey: 'product_id'
 });

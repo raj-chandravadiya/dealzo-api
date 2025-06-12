@@ -18,6 +18,8 @@ import { OrderDefineModel } from '../models/orders';
 import type { PaymentModelStatic } from '../models/payment';
 import { PaymentDefineModel } from '../models/payment';
 import type { ProductModelStatic } from '../models/product';
+import type { ProductColorModelStatic } from '../models/product-color';
+import { ProductColorDefineModel } from '../models/product-color';
 import type { ProductDescriptionModelStatic } from '../models/product-description';
 import { ProductDescriptionDefineModel } from '../models/product-description';
 import type { ProductImageModelStatic } from '../models/product-images';
@@ -48,6 +50,7 @@ import { ProductDefineModel } from './../models/product';
 import { ProductManufacturingDetailsDefineModel } from './../models/product-manufacturing-details';
 import type { ProductManufacturingDetailsModelStatic } from './../models/product-manufacturing-details';
 import { sequelize } from './config';
+
 export interface DbContext {
   sequelize: Sequelize;
   lookups: LookupsModelStatic;
@@ -74,6 +77,7 @@ export interface DbContext {
   productManufacturingDetails: ProductManufacturingDetailsModelStatic;
   productImage: ProductImageModelStatic;
   productDescription: ProductDescriptionModelStatic;
+  productColor: ProductColorModelStatic;
 }
 
 export const db: DbContext = {
@@ -101,5 +105,6 @@ export const db: DbContext = {
   productQuestion: ProductQuestionDefineModel,
   productManufacturingDetails: ProductManufacturingDetailsDefineModel,
   productImage: ProductImageDefineModel,
-  productDescription: ProductDescriptionDefineModel
+  productDescription: ProductDescriptionDefineModel,
+  productColor: ProductColorDefineModel
 };
