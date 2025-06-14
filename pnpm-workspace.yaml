@@ -1,0 +1,7 @@
+packages:
+  - 'common'
+  - 'modules/admin'
+  - 'modules/api-gateway'
+  - 'modules/authorizer'
+  - 'modules/buyer'
+  - 'modules/seller'
