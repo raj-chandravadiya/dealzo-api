@@ -9,8 +9,8 @@
     "moduleResolution": "Node16",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true, 
-    "skipDefaultLibCheck": true 
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
   },
   "exclude": ["node_modules", "lib"],
   "typeRoots": ["./types", "./node_modules/@types"]
