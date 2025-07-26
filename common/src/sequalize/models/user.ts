@@ -10,7 +10,7 @@ export type UserCreateModel = {
   account_type_id: number;
   user_status_id: number;
   created_at: Date;
-  modified_at: Date;
+  modified_at?: Date;
 };
 
 export type UserUpdateModel = Partial<UserCreateModel>;
@@ -60,7 +60,7 @@ export const UserModelAttributes: ModelAttributes = {
   },
   modified_at: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true
   }
 };
 
