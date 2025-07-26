@@ -134,3 +134,6 @@ export {
   ProductAttributeUpdateModel,
   ProductAttributeModel
 } from './src/sequalize/models/product-attributes';
+
+export { getResult } from './src/utility/common-response';
+export { HttpStatusCode } from './src/utility/enums';
