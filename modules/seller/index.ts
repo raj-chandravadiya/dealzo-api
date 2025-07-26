@@ -12,5 +12,5 @@ app.post('/delete-seller', (req, res) => {
 });
 
 app.listen(4004, () => {
-  console.log('Authorizer running on http://localhost:4004');
+  console.log('seller running on http://localhost:4004');
 });
